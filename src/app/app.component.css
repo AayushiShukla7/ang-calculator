@@ -1,0 +1,20 @@
+.glow-gradient {
+    /* background: linear-gradient(to bottom, #e07aad, #78d580, #f1b95a); */
+    background: linear-gradient(to right, #6366F1, #A855F7, #EC4899);
+    background-size: 200% 200%;
+    animation: gradientGlow 3s ease infinite;
+}
+
+@keyframes gradientGlow {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 100%;
+    }
+
+    100% {
+        background-position: 0% 0%;
+    }
+}
