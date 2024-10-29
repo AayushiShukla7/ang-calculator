@@ -1,13 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { Component, Pipe } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    CommonModule
+    FormsModule,
+    CommonModule,
+    MatSlideToggleModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -21,6 +25,8 @@ export class AppComponent {
   calNumber: string = 'noValue';
   firstNumber: number = 0;
   secondNumber: number = 0;
+
+  isChecked: boolean = false;
 
   onClickValue(val: string, type: any) {
     //console.log(val, type);

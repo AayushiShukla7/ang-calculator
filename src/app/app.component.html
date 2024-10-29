@@ -3,7 +3,13 @@
   <!-- <div class="w-full mx-auto rounded-xl shadow-xl text-gray-800 relative overflow-hidden" style="max-width: 350px;"> -->
   <div class="w-full mx-auto rounded-xl shadow-xl text-gray-800 relative overflow-hidden isolate bg-white/15 ring-1 ring-black/5" style="max-width: 350px;">
 
-    <h1 class="text-center text-white py-10 font-bold text-2xl">Angular Calculator</h1>
+    <h1 class="text-center text-white py-2 font-bold text-lg">Angular Calculator</h1>
+    <p class="text-center text-white font-bold text-md">
+      <!-- <mat-slide-toggle>Slide to toggle between Standard and Scientific Calculator</mat-slide-toggle> -->
+      Standard <mat-slide-toggle [(ngModel)]="isChecked">
+        <p class="text-center text-white pt-3 font-bold text-lg">Scientific</p>
+      </mat-slide-toggle>
+    </p>
 
     <!-- Calculator Screen -->
     <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
