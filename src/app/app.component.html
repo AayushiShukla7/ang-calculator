@@ -15,7 +15,7 @@
       <div class="card">
 
         <!-- Standard Calculator -->
-        <div class="front" *ngIf="!isChecked">
+        <div class="front" *ngIf="!isChecked" [@inOutAnimation]>
           <!-- Calculator Screen -->
           <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
 
@@ -234,7 +234,7 @@
         </div>
         
         <!-- Scientific Calculator -->
-        <div class="back" *ngIf="isChecked">
+        <div class="back" *ngIf="isChecked" [@inOutAnimation]>
           <!-- Calculator Screen -->
           <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
 
@@ -450,12 +450,6 @@
           <!-- End Calculator Buttons Area -->
         </div>
       </div>
-    </div>
-
-    <div id="std-calc">
-
-      
-
     </div>
 
   </div>
