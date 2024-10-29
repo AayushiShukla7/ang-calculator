@@ -5,227 +5,458 @@
 
     <h1 class="text-center text-white py-2 font-bold text-lg">Angular Calculator</h1>
     <p class="text-center text-white font-bold text-md">
-      <!-- <mat-slide-toggle>Slide to toggle between Standard and Scientific Calculator</mat-slide-toggle> -->
       Standard <mat-slide-toggle [(ngModel)]="isChecked">
-        <p class="text-center text-white pt-3 font-bold text-lg">Scientific</p>
+        <p class="text-center text-white pt-3.5 font-bold text-lg">Scientific</p>
       </mat-slide-toggle>
     </p>
 
-    <!-- Calculator Screen -->
-    <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
+    <!-- Test - Card Flip on Toggle -->
+    <div class="container">
+      <div class="card">
 
-      <!-- Function Screen -->
-      <div class="w-full py-5 px-6 text-2xl text-white font-thin">
-        {{ funcT }}
-      </div>
+        <!-- Standard Calculator -->
+        <div class="front" *ngIf="!isChecked">
+          <!-- Calculator Screen -->
+          <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
 
-      <!-- Number Screen -->
-      <div class="w-full py-5 px-6 text-6xl text-white font-thin">
-        {{ calValue | number }}
+            <!-- Function Screen -->
+            <div class="w-full py-5 px-6 text-2xl text-white font-thin">
+              {{ funcT }}
+            </div>
+
+            <!-- Number Screen -->
+            <div class="w-full py-5 px-6 text-6xl text-white font-thin">
+              {{ calValue | number }}
+            </div>
+
+          </div>
+          <!-- End Calculator Screen -->
+
+          <!-- Calculator Buttons Area -->
+          <div class="w-full bg-gradient-to-b from-purple-500 to-purple-800">
+
+            <!-- First Button Row -->
+            <div class="flex w-full">
+
+              <!-- Clear Button -->
+              <div class="w-2/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('c','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">C</span>
+              </button>          
+              </div>
+              <!-- End Clear Button -->
+
+              <!-- Percentage Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('%','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">%</span>
+                </button>
+              </div>
+              <!-- End Percentage Button -->
+
+                <!-- Division Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('/','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                    <span class="relative">/</span>
+                  </button>
+                </div>
+                <!-- End Division Button -->  
+
+            </div>
+            <!-- End of First Button Row -->
+
+            <!-- Second Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 7 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('7','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">7</span>
+                </button>            
+              </div>
+              <!-- End Number 7 Button -->
+
+              <!-- Number 8 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('8','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">8</span>
+                </button>
+              </div>
+              <!-- End Number 8 Button -->
+
+                <!-- Number 9 Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('9','number')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">9</span>
+                  </button>
+                </div>
+                <!-- End Number 9 Button -->
+
+                <!-- Multiplication Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('*','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">*</span>
+                  </button>
+                </div>
+                <!-- End Multiplication Button -->
+
+            </div>
+            <!-- End of Second Button Row -->
+
+            <!-- Third Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 4 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('4','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">4</span>
+                </button>            
+              </div>
+              <!-- End Number 4 Button -->
+
+              <!-- Number 5 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('5','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">5</span>
+                </button>
+              </div>
+              <!-- End Number 5 Button -->
+
+                <!-- Number 6 Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('6','number')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">6</span>
+                  </button>
+                </div>
+                <!-- End Number 6 Button -->
+
+                <!-- Subtraction Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('-','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">-</span>
+                  </button>
+                </div>
+                <!-- End Subtraction Button -->
+        
+
+            </div>
+            <!-- End of Third Button Row -->
+
+            <!-- Fourth Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 1 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('1','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">1</span>
+                </button>            
+              </div>
+              <!-- End Number 1 Button -->
+
+              <!-- Number 2 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('2','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">2</span>
+                </button>
+              </div>
+              <!-- End Number 2 Button -->
+
+                <!-- Number 3 Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('3','number')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">3</span>
+                  </button>
+                </div>
+                <!-- End Number 3 Button -->
+
+                <!-- Addition Button -->
+                <div class="w-1/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('+','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">+</span>
+                  </button>
+                </div>
+                <!-- End Addition Button -->
+        
+
+            </div>
+            <!-- End of Fourth Button Row -->
+
+            <!-- Fifth Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 0 Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('0','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">0</span>
+                </button>            
+              </div>
+              <!-- End Number 0 Button -->
+
+              <!-- Decimal Button -->
+              <div class="w-1/4 border-r border-b border-purple-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('.','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">.</span>
+                </button>
+              </div>
+              <!-- End Decimal Button -->
+
+                <!-- Equal Button -->
+                <div class="w-2/4 border-r border-b border-purple-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('=','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">=</span>
+                  </button>
+                </div>
+                <!-- End Equal Button -->  
+
+            </div>
+            <!-- End of Fifth Button Row -->
+
+          </div>
+          <!-- End Calculator Buttons Area -->
+        </div>
+        
+        <!-- Scientific Calculator -->
+        <div class="back" *ngIf="isChecked">
+          <!-- Calculator Screen -->
+          <div class="w-full h-40 bg-slate-950/70 ring-1 ring-black/10 text-right">
+
+            <!-- Function Screen -->
+            <div class="w-full py-5 px-6 text-2xl text-white font-thin">
+              {{ funcT }}
+            </div>
+
+            <!-- Number Screen -->
+            <div class="w-full py-5 px-6 text-6xl text-white font-thin">
+              {{ calValue | number }}
+            </div>
+
+          </div>
+          <!-- End Calculator Screen -->
+
+          <!-- Calculator Buttons Area -->
+          <div class="w-full bg-gradient-to-b from-purple-500 to-purple-800">
+
+            <!-- First Button Row -->
+            <div class="flex w-full">
+
+              <!-- Clear Button -->
+              <div class="w-2/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('c','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">C</span>
+              </button>          
+              </div>
+              <!-- End Clear Button -->
+
+              <!-- Sin Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('sin','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">sin</span>
+                </button>
+              </div>
+              <!-- End Sin Button -->
+
+              <!-- Cos Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('cos','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">cos</span>
+                </button>
+              </div>
+              <!-- End Cos Button -->  
+
+            </div>
+            <!-- End of First Button Row -->
+
+            <!-- Second Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 7 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('7','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">7</span>
+                </button>            
+              </div>
+              <!-- End Number 7 Button -->
+
+              <!-- Number 8 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('8','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">8</span>
+                </button>
+              </div>
+              <!-- End Number 8 Button -->
+
+              <!-- Number 9 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('9','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">9</span>
+                </button>
+              </div>
+              <!-- End Number 9 Button -->
+
+              <!-- Tan Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('tan','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">tan</span>
+                </button>
+              </div>
+              <!-- End Multiplication Button -->
+
+            </div>
+            <!-- End of Second Button Row -->
+
+            <!-- Third Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 4 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('4','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">4</span>
+                </button>            
+              </div>
+              <!-- End Number 4 Button -->
+
+              <!-- Number 5 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('5','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">5</span>
+                </button>
+              </div>
+              <!-- End Number 5 Button -->
+
+              <!-- Number 6 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('6','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">6</span>
+                </button>
+              </div>
+              <!-- End Number 6 Button -->
+
+              <!-- Hypotenuse Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('hyp','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">hyp</span>
+                </button>
+              </div>
+              <!-- End Hypotenuse Button -->        
+
+            </div>
+            <!-- End of Third Button Row -->
+
+            <!-- Fourth Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 1 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('1','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">1</span>
+                </button>            
+              </div>
+              <!-- End Number 1 Button -->
+
+              <!-- Number 2 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('2','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">2</span>
+                </button>
+              </div>
+              <!-- End Number 2 Button -->
+
+              <!-- Number 3 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('3','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">3</span>
+                </button>
+              </div>
+              <!-- End Number 3 Button -->
+
+              <!-- Power Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('pow','function')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                <span class="relative">x^y</span>
+                </button>
+              </div>
+              <!-- End Power Button -->        
+
+            </div>
+            <!-- End of Fourth Button Row -->
+
+            <!-- Fifth Button Row -->
+            <div class="flex w-full">
+
+              <!-- Number 0 Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('0','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">0</span>
+                </button>            
+              </div>
+              <!-- End Number 0 Button -->
+
+              <!-- Decimal Button -->
+              <div class="w-1/4 border-r border-b border-sky-400">
+                <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('.','number')">
+                  <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">.</span>
+                </button>
+              </div>
+              <!-- End Decimal Button -->
+
+                <!-- Equal Button -->
+                <div class="w-2/4 border-r border-b border-sky-400">
+                  <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-sky-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-sky-600 hover:to-sky-400 hover:ring-5 hover:ring-sky-600 hover:ring-offset-2" (click)="onClickValue('=','function')">
+                    <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
+                  <span class="relative">=</span>
+                  </button>
+                </div>
+                <!-- End Equal Button -->  
+
+            </div>
+            <!-- End of Fifth Button Row -->
+
+          </div>
+          <!-- End Calculator Buttons Area -->
+        </div>
       </div>
+    </div>
+
+    <div id="std-calc">
+
+      
 
     </div>
-    <!-- End Calculator Screen -->
-
-    <!-- Calculator Buttons Area -->
-    <div class="w-full bg-gradient-to-b from-purple-500 to-purple-800">
-
-      <!-- First Button Row -->
-      <div class="flex w-full">
-
-        <!-- Clear Button -->
-        <div class="w-2/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('c','function')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">C</span>
-        </button>          
-        </div>
-        <!-- End Clear Button -->
-
-        <!-- Percentage Button -->
-         <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('%','function')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">%</span>
-          </button>
-         </div>
-         <!-- End Percentage Button -->
-
-          <!-- Division Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('/','function')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-              <span class="relative">/</span>
-            </button>
-           </div>
-           <!-- End Division Button -->  
-
-      </div>
-      <!-- End of First Button Row -->
-
-      <!-- Second Button Row -->
-      <div class="flex w-full">
-
-        <!-- Number 7 Button -->
-        <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('7','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">7</span>
-          </button>            
-        </div>
-        <!-- End Number 7 Button -->
-
-        <!-- Number 8 Button -->
-         <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('8','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">8</span>
-          </button>
-         </div>
-         <!-- End Number 8 Button -->
-
-          <!-- Number 9 Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('9','number')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">9</span>
-            </button>
-           </div>
-           <!-- End Number 9 Button -->
-
-          <!-- Multiplication Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('*','function')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">*</span>
-            </button>
-           </div>
-           <!-- End Multiplication Button -->
-
-      </div>
-      <!-- End of Second Button Row -->
-
-      <!-- Third Button Row -->
-      <div class="flex w-full">
-
-        <!-- Number 4 Button -->
-        <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('4','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">4</span>
-          </button>            
-        </div>
-        <!-- End Number 4 Button -->
-
-        <!-- Number 5 Button -->
-         <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('5','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">5</span>
-          </button>
-         </div>
-         <!-- End Number 5 Button -->
-
-          <!-- Number 6 Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('6','number')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">6</span>
-            </button>
-           </div>
-           <!-- End Number 6 Button -->
-
-          <!-- Subtraction Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('-','function')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">-</span>
-            </button>
-           </div>
-           <!-- End Subtraction Button -->
-  
-
-      </div>
-      <!-- End of Third Button Row -->
-
-      <!-- Fourth Button Row -->
-      <div class="flex w-full">
-
-        <!-- Number 1 Button -->
-        <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('1','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">1</span>
-          </button>            
-        </div>
-        <!-- End Number 1 Button -->
-
-        <!-- Number 2 Button -->
-         <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('2','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">2</span>
-          </button>
-         </div>
-         <!-- End Number 2 Button -->
-
-          <!-- Number 3 Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('3','number')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">3</span>
-            </button>
-           </div>
-           <!-- End Number 3 Button -->
-
-          <!-- Addition Button -->
-          <div class="w-1/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('+','function')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">+</span>
-            </button>
-           </div>
-           <!-- End Addition Button -->
-  
-
-      </div>
-      <!-- End of Fourth Button Row -->
-
-      <!-- Fifth Button Row -->
-      <div class="flex w-full">
-
-        <!-- Number 0 Button -->
-        <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('0','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">0</span>
-          </button>            
-        </div>
-        <!-- End Number 0 Button -->
-
-        <!-- Decimal Button -->
-         <div class="w-1/4 border-r border-b border-purple-400">
-          <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('.','number')">
-            <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">.</span>
-          </button>
-         </div>
-         <!-- End Decimal Button -->
-
-          <!-- Equal Button -->
-          <div class="w-2/4 border-r border-b border-purple-400">
-            <button class="w-full h-16 outline-none text-xl font-light group relative overflow-hidden rounded bg-purple-600 px-8 py-4 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-purple-600 hover:to-purple-400 hover:ring-5 hover:ring-purple-600 hover:ring-offset-2" (click)="onClickValue('=','function')">
-              <span class="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-700 group-hover:-translate-x-40"></span>
-            <span class="relative">=</span>
-            </button>
-           </div>
-           <!-- End Equal Button -->  
-
-      </div>
-      <!-- End of Fifth Button Row -->
-
-    </div>
-    <!-- End Calculator Buttons Area -->
 
   </div>
 
