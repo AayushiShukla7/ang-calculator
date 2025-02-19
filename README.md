@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
 
+1 - Standard and Scientific calculator created using AngularJS.
+2 - Glassmorphic design with glossy/shiny effect on key hover.
+3 - Background is a gradient that keeps evolving into different soothing colors.
+4 - Toggle to switch between Standard and Scientific modes.
+5 - Color shift between Standard (purple) and Scientific (sky blue) to clearly indicate the selected mode.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
